@@ -57,9 +57,12 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
       } else if ( event is OperationEntry ) {
 
       } else if ( event is UpResult ) {
+        print(state.mathResult + "-----"+ state.secondNumber);
         yield state.copyWith(
+
           mathResult: state.mathResult,
-          secondNumber: state.mathResult
+          secondNumber: (state.mathResult.endsWith('.0'))? state.mathResult.substring(0, state.mathResult.length - 2)
+              : state.mathResult
         );
       }
   }
@@ -277,6 +280,10 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
         // caso que el nuevo sea cero
         if(lastChar !="0"){
           str = str + newStr;
+        }else{
+          if(str.length > 1){
+            str = str + newStr;
+          }
         }
       }else{
         if(lastChar == '0'){
