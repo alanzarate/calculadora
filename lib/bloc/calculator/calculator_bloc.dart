@@ -287,7 +287,12 @@ class CalculatorBloc extends Bloc<CalculatorEvent, CalculatorState> {
         }
       }else{
         if(lastChar == '0'){
-          str = newStr;
+          if(str.length > 1){
+            str = str + newStr;
+          }else{
+            str = newStr;
+          }
+
         }else{
           str = str + newStr;
         }
