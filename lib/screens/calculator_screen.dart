@@ -26,7 +26,7 @@ class CalculatorScreen extends StatelessWidget {
                 child: Container(),
               ),
 
-              ResultsLabels(),
+
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
